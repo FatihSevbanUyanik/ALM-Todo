@@ -10,16 +10,11 @@ const mutations = {
       state.todos.unshift(payload)
       localStorage.setItem('todos',  JSON.stringify(state.todos));
    }, 
-   updateTodo(state, payload) {
-      state.todos.map(todo => {
-         if (todo.id === payload) 
-            todo.isDone = !todo.isDone 
-         return todo
-      })
+   updateTodos(state) {
       localStorage.setItem('todos', JSON.stringify(state.todos));
    },
-   delete(state, payload) {
-      state.todos.filter(todo =>  todo.id !== payload)
+   deleteTodo(state, payload) {
+      state.todos = state.todos.filter(todo =>  todo.id !== payload)
       localStorage.setItem('todos',  JSON.stringify(state.todos));
    },
    initialiseTodos(state) {
@@ -30,9 +25,10 @@ const mutations = {
 const actions = {};
 
 const getters = {
-   getTodos(state) {
-       return state.todos;
-   }
+   todos(state) { 
+      
+         console.log("passes")
+      return state.todos; }
 }
 
 export default {

@@ -1,22 +1,20 @@
 <template>
-   
-         <form @submit.prevent="createTodo">
-            <v-card outlined class="py-2 elevation-1 border-primary mt-7">
-               <v-toolbar class="elevation-0">
-                  <v-text-field
-                     v-model="content"
-                     label="Todo"
-                     @blur="$v.content.$touch()"
-                     :error-messages="contentErrors"
-                     class="mr-3 mt-4"
-                  ></v-text-field>
-                  <v-btn x-small fab class="elevation-0" color="primary" type="submit" dark>
-                     <v-icon>mdi-send</v-icon>
-                  </v-btn>
-               </v-toolbar>
-            </v-card>
-         </form>
-
+   <form @submit.prevent="createTodo">
+      <v-card outlined class="py-2 elevation-1 border-primary mt-7">
+         <v-toolbar class="elevation-0">
+            <v-text-field
+               v-model="content"
+               label="Todo"
+               @blur="$v.content.$touch()"
+               :error-messages="contentErrors"
+               class="mr-3 mt-4"
+            ></v-text-field>
+            <v-btn x-small fab class="elevation-0" color="primary" type="submit" dark>
+               <v-icon>mdi-send</v-icon>
+            </v-btn>
+         </v-toolbar>
+      </v-card>
+   </form>
 </template>
 
 <script>
@@ -55,9 +53,5 @@ export default {
 <style scoped>
 .border-primary {
    border-left: 5px solid rgb(0, 102, 255);
-}
-
-.border-grey {
-   border-left: 5px solid rgb(188, 195, 204);
 }
 </style>
