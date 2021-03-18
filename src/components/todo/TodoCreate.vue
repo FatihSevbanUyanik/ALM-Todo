@@ -1,6 +1,6 @@
 <template>
    <form @submit.prevent="createTodo">
-      <v-card outlined class="py-2 elevation-1 border-primary mt-7">
+      <v-card outlined class="py-2 elevation-1 border-primary">
          <v-toolbar class="elevation-0">
             <v-text-field
                v-model="content"

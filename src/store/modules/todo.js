@@ -1,5 +1,6 @@
 const state = {
-   todos: localStorage.getItem('todos') || '[]'
+   todos: localStorage.getItem('todos') || '[]',
+   todoSearch: ''
 };
 
 const mutations = {
@@ -12,6 +13,9 @@ const mutations = {
    }, 
    updateTodos(state) {
       localStorage.setItem('todos', JSON.stringify(state.todos));
+   },
+   updateSearch(state, payload) {
+      state.todoSearch = payload
    },
    deleteTodo(state, payload) {
       state.todos = state.todos.filter(todo =>  todo.id !== payload)
@@ -26,9 +30,11 @@ const actions = {};
 
 const getters = {
    todos(state) { 
-      
-         console.log("passes")
-      return state.todos; }
+      return state.todos.filter(todo => todo.content.includes(state.todoSearch))   
+   },
+   todoSearch(state) { 
+      return state.todoSearch 
+   },
 }
 
 export default {
